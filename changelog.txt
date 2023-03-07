@@ -1,0 +1,9 @@
+MigrAI changelog v0.042069 (07-03-2023):
+    Changes:
+     - Nu geen @everyone meer als je !timeleft doet.
+     - Met !link krijg je nu de link van de game.
+     - De automatische notificatie post nu ook de gamelink mee.
+     - !changelog.
+    Known bugs:
+     - MigrAI krijgt na een tijdje een timeout van atwar. Ik weet hoe ik het moet fixen, maar ik ben nog te lui.
+     - De automatische notificatie is nog kapot, ik weet nog niet waarom.
