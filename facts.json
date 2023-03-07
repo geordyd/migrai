@@ -1,0 +1,110 @@
+[
+  {
+		"fact": "Africa is the second largest continent in the world by land area, after Asia.",
+		"category": "geography"
+	},
+	{
+		"fact": "The Nile River is the longest river in the world and is located in Africa.",
+		"category": "geography"
+	},
+	{
+		"fact": "The Sahara Desert is the largest hot desert in the world and covers a significant portion of North Africa.",
+		"category": "geography"
+	},
+	{
+		"fact": "Africa is home to the world's largest land animal, the African elephant.",
+		"category": "wildlife"
+	},
+	{
+		"fact": "The Great Rift Valley, which is a series of geological faults and valleys, stretches for over 6,000 kilometers from Syria to Mozambique.",
+		"category": "geography"
+	},
+	{
+		"fact": "Africa has the youngest population in the world, with over 60% of its population under the age of 25.",
+		"category": "demographics"
+	},
+	{
+		"fact": "The highest point in Africa is Mount Kilimanjaro, which stands at 5,895 meters, and is located in Tanzania.",
+		"category": "geography"
+	},
+	{
+		"fact": "The continent is home to over 1,000 different languages and dialects, with Arabic being the most widely spoken.",
+		"category": "language"
+	},
+	{
+		"fact": "The African continent is the world's second most populous, with over 1.3 billion people.",
+		"category": "demographics"
+	},
+	{
+		"fact": "The continent is rich in natural resources, including oil, gold, diamonds, and other minerals. However, many African countries continue to struggle with poverty and economic development.",
+		"category": "economy"
+	},
+	{
+		"fact": "The Baobab tree, which is native to Africa, can live for over 2,000 years and is known as the \"tree of life\" for the many resources it provides.",
+		"category": "nature"
+	},
+	{
+		"fact": "The Serengeti National Park in Tanzania is home to the largest mammal migration in the world, with millions of wildebeest and zebras traveling across the plains every year.",
+		"category": "wildlife"
+	},
+	{
+		"fact": "Lake Victoria, located in East Africa, is the largest lake in Africa and the second largest freshwater lake in the world.",
+		"category": "geography"
+	},
+	{
+		"fact": "The largest hot spring in the world, located in Ethiopia, measures over 300 feet wide and has a temperature of 200 degrees Fahrenheit.",
+		"category": "geography"
+	},
+	{
+		"fact": "The city of Timbuktu in Mali was once an important center of Islamic scholarship and trade, and its three great mosques are still a UNESCO World Heritage site.",
+		"category": "history"
+	},
+	{
+		"fact": "The African continent is home to the world's largest population of ostriches, which are known for their distinctive long necks and powerful legs.",
+		"category": "wildlife"
+	},
+	{
+		"fact": "The world's largest frog, the Goliath frog, is native to West Africa and can weigh up to 7 pounds.",
+		"category": "wildlife"
+	},
+	{
+		"fact": "The Namib Desert, located along the coast of Namibia, is one of the oldest and driest deserts in the world, with some areas receiving less than 10 millimeters of rainfall per year.",
+		"category": "geography"
+	},
+	{
+		"fact": "The Aksumite Empire, located in what is now Ethiopia and Eritrea, was one of the world's most powerful civilizations in the 1st to 7th centuries CE, and was known for its advanced architecture and military prowess.",
+		"category": "history"
+	},
+	{
+		"fact": "Africa is home to some of the world's most iconic animals, including lions, giraffes, zebras, gorillas, and rhinoceroses.",
+		"category": "wildlife"
+	},
+	{
+		"fact": "The ancient Egyptian civilization, which emerged around 3100 BCE, was one of the world's earliest and most advanced civilizations, known for its monumental architecture, writing system, and intricate religious beliefs.",
+		"category": "history"
+	},
+	{
+		"fact": "The Okavango Delta in Botswana is one of the world's largest inland deltas, and is known for its abundant wildlife and unique ecosystem.",
+		"category": "geography"
+	},
+	{
+		"fact": "Africa is home to some of the world's most diverse and colorful bird species, including the African pitta, the shoebill stork, and the lilac-breasted roller.",
+		"category": "wildlife"
+	},
+	{
+		"fact": "The first human beings are believed to have originated in Africa, and the continent is home to some of the world's most important archaeological and anthropological sites, including the Cradle of Humankind in South Africa.",
+		"category": "history"
+	},
+	{
+		"fact": "The Kingdom of Kush, located in what is now Sudan, was one of the world's most powerful empires in the 8th century BCE to the 4th century CE, known for its advanced agriculture, trade, and ironworking.",
+		"category": "history"
+	},
+	{
+		"fact": "The African continent has a rich and diverse musical heritage, with genres ranging from traditional folk music to modern hip hop and electronic music.",
+		"category": "culture"
+	},
+	{
+		"fact": "Africa has a long and complex history of colonialism and post-colonialism, with many countries still grappling with the legacies of European colonization and the struggle for political and economic independence.",
+		"category": "history"
+	}
+]
