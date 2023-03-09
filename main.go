@@ -86,7 +86,7 @@ func getTurn() int {
 
 	body, err := io.ReadAll(resp.Body)
 	if err != nil {
-		log.Fatal(err)
+		fmt.Println(err)
 		return -1
 	}
 
@@ -100,12 +100,28 @@ func getTurn() int {
 
 }
 
+func getTime() string {
+	resp, err := http.Get("http://localhost:3000/time")
+	if err != nil {
+		fmt.Println(err)
+		return "69:69:69"
+	}
+
+	body, err := io.ReadAll(resp.Body)
+	if err != nil {
+		fmt.Println(err)
+		return "69:69:69"
+	}
+
+	return string(body)
+}
+
 func checkTime(s *discordgo.Session, r *discordgo.Ready) {
 
 	for {
 
 		currentTurn := getTurn()
-
+		fmt.Printf("turn: %d, currentturn: %d\n", turn, currentTurn)
 		if turn != currentTurn {
 			check6 = false
 			check5 = false
@@ -117,19 +133,7 @@ func checkTime(s *discordgo.Session, r *discordgo.Ready) {
 			turn = currentTurn
 		}
 
-		resp, err := http.Get("http://localhost:3000/time")
-		if err != nil {
-			fmt.Println(err)
-			return
-		}
-
-		body, err := io.ReadAll(resp.Body)
-		if err != nil {
-			log.Fatal(err)
-			return
-		}
-
-		sb := string(body)
+		sb := getTime()
 
 		parsedTime := parseTime(sb)
 
@@ -199,21 +203,9 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 
 	if strings.HasPrefix(m.Content, "!timeleft") {
 
-		resp, err := http.Get("http://localhost:3000/time")
-		if err != nil {
-			fmt.Println(err)
-			return
-		}
+		sb := getTime()
 
-		body, err := io.ReadAll(resp.Body)
-		if err != nil {
-			log.Fatal(err)
-			return
-		}
-
-		sb := string(body)
-
-		_, err = s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("Turn %d, time left: %s", turn, sb))
+		_, err := s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("Turn %d, time left: %s", turn, sb))
 		if err != nil {
 			fmt.Println(err)
 			return
