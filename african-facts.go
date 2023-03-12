@@ -7,6 +7,8 @@ import (
     "io/ioutil"
     "os"
     "log"
+    "math/rand"
+    "time"
 );
 
 type ArrayFactsCategory struct {
@@ -23,13 +25,15 @@ type FactCategory struct {
 func main() {
 	
     // get the inpute value of the user and set in a variable.
-    // check which value of category 
-
+    // check if input value contains in category list 
+   var result bool = false
    var factCategory ArrayFactsCategory 
    var catergoryList = [6] string {"geography","wildlife","demographics","language","economy","nature"}
    fmt.Println(catergoryList)
    fmt.Println("Pick out which category you want from the category list")
    fmt.Println( "```Available categories:\n - 1.geography\n - 2.wildlife\n - 3.demographics\n - 4.language\n - 5.economy\n - 6.nature\n```")
+   fmt.Println("Give a random pick from african facts with '!african-facts random' command.\n")
+
 
     // Open our jsonFile
     jsonFile, err := os.Open("facts.json")
@@ -51,19 +55,18 @@ func main() {
         log.Fatal("Error during Unmarshal(): ", err)
     }
  
-    // Let's print the unmarshalled data!
-    for i := 0; i < len(factCategory.ArrayFactsCategory); i++ {
-        fmt.Println("category: " + factCategory.ArrayFactsCategory[i].Fact)
-        fmt.Println("facts: " + factCategory.ArrayFactsCategory[i].Category)
-    }
-
     //check if input in categorylist.
-    var intput = "geography";
-    if IsValidCategory(intput){
-        fmt.Println("test")
-    }
-  
+    var intput string = "geography";
+    result = IsValidCategory(intput)
+    if result {
+        fmt.Println(intput, "is present in the array of strings", catergoryList)
+      
 
+    }
+    
+    //Give random african facts from the array.
+    giveRandomAfricanFacts(factCategory)
+     
 }
 
 func IsValidCategory(category string) bool {
@@ -78,4 +81,27 @@ func IsValidCategory(category string) bool {
         return true
     }
     return false
+}
+
+func giveRandomAfricanFacts(factCategory ArrayFactsCategory) {
+    
+    //give random facts of the african-fact list
+    min := 0
+    max := len(factCategory.ArrayFactsCategory)
+
+    // set seed
+    rand.Seed(time.Now().UnixNano())
+    // generate random number and print on console
+    x := rand.Intn(max - min) + min
+
+    //show the random pick from africanfacts list. 
+    fmt.Println("facts:",factCategory.ArrayFactsCategory[x].Fact)
+    fmt.Println("category:",factCategory.ArrayFactsCategory[x].Category)
+}
+
+func giveRandomAfricanFactsByInput( inputValue string ,factCategory ArrayFactsCategory) FactCategory {
+   //filter out the word in the arry of the category :input value.
+
+   
+     
 }
