@@ -28,7 +28,9 @@ func main() {
    var factCategory ArrayFactsCategory 
    var catergoryList = [6] string {"geography","wildlife","demographics","language","economy","nature"}
    fmt.Println(catergoryList)
-	
+   fmt.Println("Pick out which category you want from the category list")
+   fmt.Println( "```Available categories:\n - 1.geography\n - 2.wildlife\n - 3.demographics\n - 4.language\n - 5.economy\n - 6.nature\n```")
+
     // Open our jsonFile
     jsonFile, err := os.Open("facts.json")
     // if we os.Open returns an error then handle it
@@ -55,4 +57,25 @@ func main() {
         fmt.Println("facts: " + factCategory.ArrayFactsCategory[i].Category)
     }
 
+    //check if input in categorylist.
+    var intput = "geography";
+    if IsValidCategory(intput){
+        fmt.Println("test")
+    }
+  
+
+}
+
+func IsValidCategory(category string) bool {
+    switch category {
+    case
+        "wildlife",
+        "demographics",
+        "language",
+        "economy",
+        "nature",
+        "geography":
+        return true
+    }
+    return false
 }
