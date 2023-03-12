@@ -153,7 +153,7 @@ func checkTime(s *discordgo.Session, r *discordgo.Ready) {
 			check5 = true
 			go sendMessage(s, r, sb)
 		} else if parsedTime.Hours == 0 && parsedTime.Minutes == 4 && !check6 {
-			check5 = true
+			check6 = true
 			go sendMessage(s, r, sb)
 		} else if parsedTime.Hours == 0 && parsedTime.Minutes < 3 {
 			check6 = false
@@ -173,9 +173,24 @@ func parseTime(sb string) currentTime {
 
 	splittedTime := strings.Split(sb, ":")
 
-	hours, _ := strconv.Atoi(splittedTime[0])
-	min, _ := strconv.Atoi(splittedTime[1])
-	sec, _ := strconv.Atoi(splittedTime[2])
+	if len(splittedTime) == 2 {
+		splittedTime = append([]string{"00"}, splittedTime...)
+	} else if len(splittedTime) == 1 {
+		splittedTime = append([]string{"00", "00"}, splittedTime...)
+	}
+
+	hours, err := strconv.Atoi(splittedTime[0])
+	if err != nil {
+		fmt.Println(err)
+	}
+	min, err := strconv.Atoi(splittedTime[1])
+	if err != nil {
+		fmt.Println(err)
+	}
+	sec, err := strconv.Atoi(splittedTime[2])
+	if err != nil {
+		fmt.Println(err)
+	}
 
 	time := currentTime{
 		Hours:   hours,
