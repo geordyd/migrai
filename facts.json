@@ -1,4 +1,4 @@
-[
+{"facts":[
   {
 		"fact": "Africa is the second largest continent in the world by land area, after Asia.",
 		"category": "geography"
@@ -108,3 +108,4 @@
 		"category": "history"
 	}
 ]
+}
