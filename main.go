@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io"
 	"log"
+	africanfact "migrai/africanfacts"
 	"net/http"
 	"os"
 	"os/signal"
@@ -244,9 +245,18 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 			return
 		}
 	}
+	if strings.HasPrefix(m.Content, "!african-facts random") {
+		factCategory := africanfact.Africanfact()
+		_, err := s.ChannelMessageSend(m.ChannelID, factCategory.Fact+"\n"+factCategory.Category)
+
+		if err != nil {
+			fmt.Println(err)
+			return
+		}
+	}
 	if strings.HasPrefix(m.Content, "!help") {
 
-		_, err := s.ChannelMessageSend(m.ChannelID, "```Available commands:\n - !help\n - !timeleft\n - !link\n - !changelog```")
+		_, err := s.ChannelMessageSend(m.ChannelID, "```Available commands:\n - !help\n - !timeleft\n - !link\n - !changelog - !link\n - !african-facts random```")
 		if err != nil {
 			fmt.Println(err)
 			return
