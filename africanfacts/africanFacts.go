@@ -27,7 +27,7 @@ func Africanfact() FactCategory {
 	// get the inpute value of the user and set in a variable.
 	// check if input value contains in category list
 	var factCategory ArrayFactsCategory
-	var catergoryList = [6]string{"geography", "wildlife", "demographics", "language", "economy", "nature"}
+	var catergoryList = []string{"geography", "wildlife", "demographics", "language", "economy", "nature"}
 	fmt.Println(catergoryList)
 	fmt.Println("Pick out which category you want from the category list")
 	fmt.Println("Type category which african facts you want to see with '!african-facts 'given category' command.\n")

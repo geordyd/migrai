@@ -239,7 +239,8 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 		}
 	}
 	if strings.HasPrefix(m.Content, "!african-facts random") {
-		_, err := s.ChannelMessageSend(m.ChannelID, africanfact.Africanfact().Fact+"\n"+africanfact.Africanfact().Category)
+		factCategory := africanfact.Africanfact()
+		_, err := s.ChannelMessageSend(m.ChannelID, factCategory.Fact+"\n"+factCategory.Category)
 
 		if err != nil {
 			fmt.Println(err)
