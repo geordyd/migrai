@@ -237,9 +237,19 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 			return
 		}
 	}
+	if strings.HasPrefix(m.Content, "!african-facts random") {
+		//reference to the africanfact file
+
+		_, err := s.ChannelMessageSend(m.ChannelID, " ")
+
+		if err != nil {
+			fmt.Println(err)
+			return
+		}
+	}
 	if strings.HasPrefix(m.Content, "!help") {
 
-		_, err := s.ChannelMessageSend(m.ChannelID, "```Available commands:\n - !help\n - !timeleft\n - !link\n - !changelog```")
+		_, err := s.ChannelMessageSend(m.ChannelID, "```Available commands:\n - !help\n - !timeleft\n - !link\n - !changelog - !link\n - !!african-facts random```")
 		if err != nil {
 			fmt.Println(err)
 			return
