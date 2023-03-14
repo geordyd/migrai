@@ -22,7 +22,7 @@ type FactCategory struct {
 	Fact     string `json:"fact"`
 }
 
-func Africanfact() {
+func Africanfact() FactCategory {
 
 	// get the inpute value of the user and set in a variable.
 	// check if input value contains in category list
@@ -62,7 +62,7 @@ func Africanfact() {
 	// fmt.Println("category:", randomAfricanFact.Category)
 
 	//Give random african facts from the array.
-	giveRandomAfricanFacts(factCategory)
+	return giveRandomAfricanFacts(factCategory)
 
 }
 
@@ -80,7 +80,7 @@ func isValidCategory(category string) bool {
 	return false
 }
 
-func giveRandomAfricanFacts(factCategory ArrayFactsCategory) {
+func giveRandomAfricanFacts(factCategory ArrayFactsCategory) FactCategory {
 
 	//give random facts of the african-fact list
 	min := 0
@@ -95,6 +95,7 @@ func giveRandomAfricanFacts(factCategory ArrayFactsCategory) {
 	fmt.Println(".......................")
 	fmt.Println("facts:", factCategory.ArrayFactsCategory[x].Fact)
 	fmt.Println("category:", factCategory.ArrayFactsCategory[x].Category)
+	return factCategory.ArrayFactsCategory[x]
 }
 
 func giveRandomFactCategoryAfricanFactsByInputValue(inputValue string, factCategory ArrayFactsCategory) FactCategory {

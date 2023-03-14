@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io"
 	"log"
+	africanfact "migrai/africanfacts"
 	"net/http"
 	"os"
 	"os/signal"
@@ -238,9 +239,7 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 		}
 	}
 	if strings.HasPrefix(m.Content, "!african-facts random") {
-		//reference to the africanfact file
-
-		_, err := s.ChannelMessageSend(m.ChannelID, " ")
+		_, err := s.ChannelMessageSend(m.ChannelID, africanfact.Africanfact().Fact+"\n"+africanfact.Africanfact().Category)
 
 		if err != nil {
 			fmt.Println(err)
