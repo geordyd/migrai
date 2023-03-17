@@ -28,16 +28,6 @@ func main() {
 	}
 
 	dg.AddHandler(func(s *discordgo.Session, r *discordgo.Ready) {
-
-		alert.Turn = -1
-
-		alert.Check1 = false
-		alert.Check2 = false
-		alert.Check3 = false
-		alert.Check4 = false
-		alert.Check5 = false
-		alert.Check6 = false
-
 		go alert.CheckTime(s, r)
 	})
 

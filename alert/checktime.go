@@ -9,61 +9,61 @@ import (
 	"github.com/bwmarrin/discordgo"
 )
 
-var Check1 bool
-var Check2 bool
-var Check3 bool
-var Check4 bool
-var Check5 bool
-var Check6 bool
-
-var Turn int
-
 func CheckTime(s *discordgo.Session, r *discordgo.Ready) {
+
+	check1 := false
+	check2 := false
+	check3 := false
+	check4 := false
+	check5 := false
+	check6 := false
+
+	turn := -1
 
 	for {
 
 		currentTurn := gameinfo.GetTurn()
-		fmt.Printf("turn: %d, currentturn: %d\n", Turn, currentTurn)
-		if Turn != currentTurn {
-			Check6 = false
-			Check5 = false
-			Check4 = false
-			Check3 = false
-			Check2 = false
-			Check1 = false
+		fmt.Printf("turn: %d, currentturn: %d\n", turn, currentTurn)
+		if turn != currentTurn {
+			check6 = false
+			check5 = false
+			check4 = false
+			check3 = false
+			check2 = false
+			check1 = false
 
-			Turn = currentTurn
+			turn = currentTurn
 		}
 
 		sb := gameinfo.GetTime()
 
 		parsedTime := gameinfo.ParseTime(sb)
 
-		if parsedTime.Hours == 47 && !Check1 {
-			Check1 = true
+		if parsedTime.Hours == 47 && !check1 {
+			check1 = true
 			go message.Send(s, r, sb)
-		} else if parsedTime.Hours == 23 && !Check2 {
-			Check2 = true
+		} else if parsedTime.Hours == 23 && !check2 {
+			check2 = true
 			go message.Send(s, r, sb)
-		} else if parsedTime.Hours == 11 && !Check3 {
-			Check3 = true
+		} else if parsedTime.Hours == 11 && !check3 {
+			check3 = true
 			go message.Send(s, r, sb)
-		} else if parsedTime.Hours == 0 && parsedTime.Minutes == 29 && !Check4 {
-			Check4 = true
+		} else if parsedTime.Hours == 0 && parsedTime.Minutes == 29 && !check4 {
+			check4 = true
 			go message.Send(s, r, sb)
-		} else if parsedTime.Hours == 0 && parsedTime.Minutes == 14 && !Check5 {
-			Check5 = true
+		} else if parsedTime.Hours == 0 && parsedTime.Minutes == 14 && !check5 {
+			check5 = true
 			go message.Send(s, r, sb)
-		} else if parsedTime.Hours == 0 && parsedTime.Minutes == 4 && !Check6 {
-			Check6 = true
+		} else if parsedTime.Hours == 0 && parsedTime.Minutes == 4 && !check6 {
+			check6 = true
 			go message.Send(s, r, sb)
 		} else if parsedTime.Hours == 0 && parsedTime.Minutes < 3 {
-			Check6 = false
-			Check5 = false
-			Check4 = false
-			Check3 = false
-			Check2 = false
-			Check1 = false
+			check6 = false
+			check5 = false
+			check4 = false
+			check3 = false
+			check2 = false
+			check1 = false
 		}
 
 		time.Sleep(1 * time.Second)
