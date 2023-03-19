@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"migrai/changelog"
 	"migrai/gameinfo"
+	"migrai/waifu"
 	"strings"
 
 	"github.com/bwmarrin/discordgo"
@@ -46,10 +47,32 @@ func Create(s *discordgo.Session, m *discordgo.MessageCreate) {
 	}
 	if strings.HasPrefix(m.Content, "!help") {
 
-		_, err := s.ChannelMessageSend(m.ChannelID, "```Available commands:\n - !help\n - !timeleft\n - !link\n - !changelog```")
+		_, err := s.ChannelMessageSend(m.ChannelID, "```Available commands:\n - !help\n - !timeleft\n - !link\n - !changelog\n - !waifu```")
 		if err != nil {
 			fmt.Println(err)
 			return
 		}
+	}
+	if strings.HasPrefix(m.Content, "!waifu") {
+
+		username := m.Author.Username
+
+		waifuUrl := waifu.Get()
+
+		message := fmt.Sprintf("Congratulations %s on finding your waifu!", username)
+
+		embeddedMessage := &discordgo.MessageEmbed{
+			Image: &discordgo.MessageEmbedImage{
+				URL: waifuUrl,
+			},
+			Description: message,
+		}
+
+		_, err := s.ChannelMessageSendEmbed(m.ChannelID, embeddedMessage)
+		if err != nil {
+			fmt.Println(err)
+			return
+		}
+
 	}
 }
