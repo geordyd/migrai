@@ -249,7 +249,7 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 	}
 	if strings.HasPrefix(m.Content, "!help") {
 
-		_, err := s.ChannelMessageSend(m.ChannelID, "```Available commands:\n - !help\n - !timeleft\n - !link\n - !changelog - !link\n - !african-facts random```")
+		_, err := s.ChannelMessageSend(m.ChannelID, "```Available commands:\n - !help\n - !timeleft\n - !link\n - !changelog\n- !link\n - !african-facts random```")
 		if err != nil {
 			fmt.Println(err)
 			return
