@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"migrai/changelog"
 	"migrai/gameinfo"
+	"migrai/mugshot"
 	"migrai/waifu"
 	"strings"
 
@@ -69,6 +70,41 @@ func Create(s *discordgo.Session, m *discordgo.MessageCreate) {
 		}
 
 		_, err := s.ChannelMessageSendEmbed(m.ChannelID, embeddedMessage)
+		if err != nil {
+			fmt.Println(err)
+			return
+		}
+
+	}
+	if strings.HasPrefix(m.Content, "!mugshot") {
+
+		images, mugshotData, err := mugshot.Get()
+		if err != nil {
+			fmt.Println("Cannot get mugshot")
+			return
+		}
+
+		username := m.Author.Username
+
+		mugshotDataText := fmt.Sprintf("Sex: %s\nHeight: %s\nWeight: %s\nHair: %s\nEyes: %s\nRace: %s\nSex Offender: %s\nOffense: %s", mugshotData.Sex, mugshotData.Height, mugshotData.Weight, mugshotData.Hair, mugshotData.Eyes, mugshotData.Race, mugshotData.SexOffender, mugshotData.Offense)
+
+		message := fmt.Sprintf("Congratulations %s this is your mugshot!\n%s", username, mugshotDataText)
+
+		files := []*discordgo.File{}
+
+		for i, image := range images {
+			files = append(files, &discordgo.File{
+				Name:   fmt.Sprintf("%s%d.png", mugshotData.ID, i),
+				Reader: image,
+			})
+		}
+
+		embeddedMessage := &discordgo.MessageSend{
+			Content: message,
+			Files:   files,
+		}
+
+		_, err = s.ChannelMessageSendComplex(m.ChannelID, embeddedMessage)
 		if err != nil {
 			fmt.Println(err)
 			return
